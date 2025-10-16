@@ -2,19 +2,32 @@
 
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import Link from 'next/link';
 
 export default function Home() {
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [message, setMessage] = useState('');
-  const [waitlistCount, setWaitlistCount] = useState(1234);
+  const [waitlistCount, setWaitlistCount] = useState<number | null>(null);
+  const [isClient, setIsClient] = useState(false);
+  const [particles, setParticles] = useState<Array<{ left: number; top: number; delay: number; duration: number }>>([]);
 
   useEffect(() => {
+    setIsClient(true);
+    // Generate particles only on client side to avoid hydration mismatch
+    setParticles(
+      Array.from({ length: 20 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        delay: Math.random() * 2,
+        duration: 2 + Math.random() * 2,
+      }))
+    );
     // Fetch current waitlist count
     fetch('/api/waitlist')
       .then(res => res.json())
-      .then(data => setWaitlistCount(data.count))
-      .catch(() => setWaitlistCount(1234));
+      .then(data => setWaitlistCount(data.count || 0))
+      .catch(() => setWaitlistCount(0));
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -36,7 +49,7 @@ export default function Home() {
       if (response.ok) {
         setMessage('登録ありがとうございます！🎉');
         setEmail('');
-        setWaitlistCount(prev => prev + 1);
+        setWaitlistCount(prev => (prev ?? 0) + 1);
       } else {
         setMessage(data.error || '登録に失敗しました');
       }
@@ -50,7 +63,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[#0f0f23] text-[#eaeaea] scanline crt-effect">
       {/* Retro grid background */}
-      <div className="fixed inset-0 opacity-20" style={{
+      <div className="fixed inset-0 opacity-20 pointer-events-none" style={{
         backgroundImage: `
           linear-gradient(#00ff41 1px, transparent 1px),
           linear-gradient(90deg, #00ff41 1px, transparent 1px)
@@ -62,22 +75,22 @@ export default function Home() {
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden px-4">
         {/* Animated retro elements */}
         <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          {[...Array(20)].map((_, i) => (
+          {particles.map((particle, i) => (
             <motion.div
               key={i}
               className="absolute w-2 h-2 bg-[#00ff41]"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
               }}
               animate={{
                 opacity: [0, 1, 0],
                 scale: [0, 1, 0],
               }}
               transition={{
-                duration: 2 + Math.random() * 2,
+                duration: particle.duration,
                 repeat: Infinity,
-                delay: Math.random() * 2,
+                delay: particle.delay,
               }}
             />
           ))}
@@ -89,9 +102,9 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="mb-8">
-              <div className="inline-block border-4 border-[#00ff41] p-4 bg-black/50 backdrop-blur-sm">
-                <h1 className="text-4xl md:text-6xl font-bold mb-6 text-[#00ff41] text-glow-green">
+            <div className="mb-8 flex justify-center">
+              <div className="inline-block border-4 border-[#00ff41] p-6 md:p-8 bg-black/50 backdrop-blur-sm">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-[#00ff41] text-glow-green text-center leading-tight">
                   昨日までの「タスク」が、
                   <br />今日の「経験値」になる。
                 </h1>
@@ -115,7 +128,13 @@ export default function Home() {
           </motion.div>
 
           <motion.button
-            className="relative px-8 py-4 bg-black border-4 border-[#ff0080] text-[#ff0080] text-lg font-semibold hover:bg-[#ff0080] hover:text-black transition-all duration-200"
+            onClick={() => {
+              document.getElementById('waitlist-form')?.scrollIntoView({ 
+                behavior: 'smooth',
+                block: 'center'
+              });
+            }}
+            className="relative px-8 py-4 bg-black border-4 border-[#ff0080] text-[#ff0080] text-lg font-semibold hover:bg-[#ff0080] hover:text-black transition-all duration-200 cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -125,7 +144,7 @@ export default function Home() {
               boxShadow: '0 0 20px #ff0080, inset 0 0 20px rgba(255, 0, 128, 0.2)',
             }}
           >
-            START QUEST
+            事前登録する
           </motion.button>
 
           <motion.div
@@ -134,14 +153,18 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            <div className="border-2 border-[#00ff41] p-4 bg-black/70">
-              <p className="text-3xl font-bold text-[#00ff41]">{waitlistCount}+</p>
-              <p className="text-[#00ff41]">待機中の冒険者</p>
-            </div>
-            <div className="border-2 border-[#00d9ff] p-4 bg-black/70">
-              <p className="text-3xl font-bold text-[#00d9ff]">10K+</p>
-              <p className="text-[#00d9ff]">完了したクエスト</p>
-            </div>
+            {isClient && (
+              <>
+                <div className="border-2 border-[#00ff41] p-4 bg-black/70">
+                  <p className="text-3xl font-bold text-[#00ff41]">{waitlistCount ?? 0}+</p>
+                  <p className="text-[#00ff41]">待機中の冒険者</p>
+                </div>
+                <div className="border-2 border-[#00d9ff] p-4 bg-black/70">
+                  <p className="text-3xl font-bold text-[#00d9ff]">10K+</p>
+                  <p className="text-[#00d9ff]">完了したクエスト</p>
+                </div>
+              </>
+            )}
           </motion.div>
         </div>
 
@@ -386,7 +409,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 relative">
+      <section id="waitlist-form" className="py-20 px-4 relative scroll-mt-20">
         <div className="max-w-2xl mx-auto text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -433,7 +456,7 @@ export default function Home() {
             </form>
 
             <p className="text-base text-gray-400">
-              ▶ 登録は無料です。いつでも解除できます。
+              ▶ 登録は無料です。解除に関してはお問い合わせのメールアドレスからお知らせください。
             </p>
           </motion.div>
         </div>
@@ -446,11 +469,17 @@ export default function Home() {
             © 2025 リアルライフクエスト
           </p>
           <div className="flex justify-center gap-8 text-lg">
-            <a href="#" className="text-[#00d9ff] hover:text-[#ff0080] transition-colors">プライバシーポリシー</a>
+            <Link href="/privacy" className="text-[#00d9ff] hover:text-[#ff0080] transition-colors">
+              プライバシーポリシー
+            </Link>
             <span className="text-[#00ff41]">|</span>
-            <a href="#" className="text-[#00d9ff] hover:text-[#ff0080] transition-colors">利用規約</a>
+            <Link href="/terms" className="text-[#00d9ff] hover:text-[#ff0080] transition-colors">
+              利用規約
+            </Link>
             <span className="text-[#00ff41]">|</span>
-            <a href="#" className="text-[#00d9ff] hover:text-[#ff0080] transition-colors">お問い合わせ</a>
+            <Link href="/contact" className="text-[#00d9ff] hover:text-[#ff0080] transition-colors">
+              お問い合わせ
+            </Link>
           </div>
         </div>
       </footer>
