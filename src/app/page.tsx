@@ -118,7 +118,7 @@ export default function Home() {
             className="mb-12"
           >
             <div className="text-xl md:text-2xl mb-4">
-              家事、勉強、、いつもの繰り返しをクエストにすることで、
+              家事、勉強、いつもの繰り返しをクエストにすることで、
               <br />
               レベルアップを実感しよう。
             </div>
