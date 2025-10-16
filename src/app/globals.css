@@ -2,22 +2,22 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;600;700;800&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&display=swap');
 
 :root {
   --background: #1a1a2e;
-  --foreground: #eaeaea;
-  --retro-green: #00ff41;
-  --retro-pink: #ff0080;
-  --retro-cyan: #00d9ff;
-  --retro-yellow: #ffed4e;
+  --foreground: #f0f0f0;
+  --player-blue: #55aaff; /* ヒーローっぽい青 */
+  --action-red: #ff5555; /* 行動を促す赤 */
+  --text-green: #55ff55; /* テキスト表示の緑 */
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-family: 'DotGothic16', sans-serif;
   font-weight: 400;
 }
 
@@ -62,15 +62,62 @@ h1, h2, h3, h4, h5, h6 {
     text-wrap: balance;
   }
   
+  /* consistent glowing utilities mapped to the three-color palette */
   .text-glow-green {
-    text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41, 0 0 30px #00ff41;
+    text-shadow: 0 0 10px var(--text-green), 0 0 20px var(--text-green), 0 0 30px var(--text-green);
   }
   
-  .text-glow-pink {
-    text-shadow: 0 0 10px #ff0080, 0 0 20px #ff0080, 0 0 30px #ff0080;
+  .text-glow-red {
+    text-shadow: 0 0 10px var(--action-red), 0 0 20px var(--action-red), 0 0 30px var(--action-red);
   }
   
-  .text-glow-cyan {
-    text-shadow: 0 0 10px #00d9ff, 0 0 20px #00d9ff, 0 0 30px #00d9ff;
+  .text-glow-blue {
+    text-shadow: 0 0 10px var(--player-blue), 0 0 20px var(--player-blue), 0 0 30px var(--player-blue);
+  }
+
+  /* small utility to standardize section titles */
+  .section-title {
+    font-weight: 700;
+    font-size: 1.875rem; /* text-3xl */
+    line-height: 1.1;
+  }
+  @media (min-width: 768px) {
+    .section-title { font-size: 2.25rem; /* text-4xl */ }
+  }
+  
+  .section-title-blue {
+    color: var(--player-blue);
+    text-shadow: 0 0 10px var(--player-blue), 0 0 20px var(--player-blue);
+  }
+  
+  .section-title-red {
+    color: var(--action-red);
+    text-shadow: 0 0 10px var(--action-red), 0 0 20px var(--action-red);
+  }
+  
+  .section-title-green {
+    color: var(--text-green);
+    text-shadow: 0 0 10px var(--text-green), 0 0 20px var(--text-green);
+  }
+
+  /* unified card look for bordered blocks */
+  .rlq-card {
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(4px);
+    /* consistent deep shadow for all cards */
+    box-shadow: 0 8px 24px rgba(0,0,0,0.6), inset 0 1px 0 rgba(255,255,255,0.05);
+  }
+
+  /* consistent section spacing */
+  .section-container {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 768px) {
+    .section-container {
+      padding-top: 6rem;
+      padding-bottom: 6rem;
+    }
   }
 }

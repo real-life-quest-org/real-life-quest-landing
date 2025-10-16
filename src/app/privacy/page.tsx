@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#0f0f23] text-[#eaeaea] py-16 px-4">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4 text-center">
+          <h1 className="section-title section-title-blue mb-4 text-center">
             プライバシーポリシー
           </h1>
           <p className="text-center text-gray-400">
@@ -19,16 +19,16 @@ export default function PrivacyPage() {
           </p>
         </div>
 
-        <div className="border-4 border-[#00ff41] bg-black/80 p-8 space-y-8">
+        <div className="border-4 border-[var(--text-green)] bg-black/80 p-8 space-y-8 rlq-card">
           <section>
-            <h2 className="text-2xl font-bold text-[#00ff41] mb-4">第1条（個人情報の定義）</h2>
+            <h2 className="text-2xl font-bold text-[var(--text-green)] mb-4">第1条（個人情報の定義）</h2>
             <p className="text-gray-300 leading-relaxed">
               本プライバシーポリシーにおいて、「個人情報」とは、生存する個人に関する情報であって、当該情報に含まれる氏名、メールアドレスその他の記述等により特定の個人を識別できるものをいいます。
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#ff0080] mb-4">第2条（個人情報の収集）</h2>
+            <h2 className="text-2xl font-bold text-[var(--action-red)] mb-4">第2条（個人情報の収集）</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
               本サービスでは、以下の個人情報を収集する場合があります。
             </p>
@@ -40,7 +40,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#00d9ff] mb-4">第3条（個人情報の利用目的）</h2>
+            <h2 className="text-2xl font-bold text-[var(--player-blue)] mb-4">第3条（個人情報の利用目的）</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
               収集した個人情報は、以下の目的で利用いたします。
             </p>
@@ -54,7 +54,7 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#ffed4e] mb-4">第4条（個人情報の第三者提供）</h2>
+            <h2 className="text-2xl font-bold text-[var(--player-blue)] mb-4">第4条（個人情報の第三者提供）</h2>
             <p className="text-gray-300 leading-relaxed">
               運営者は、以下のいずれかに該当する場合を除き、あらかじめユーザーの同意を得ることなく、第三者に個人情報を提供することはありません。
             </p>
@@ -67,21 +67,21 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#00ff41] mb-4">第5条（個人情報の安全管理）</h2>
+            <h2 className="text-2xl font-bold text-[var(--text-green)] mb-4">第5条（個人情報の安全管理）</h2>
             <p className="text-gray-300 leading-relaxed">
               運営者は、個人情報の紛失、破壊、改ざん及び漏洩などのリスクに対して、合理的な安全対策を実施します。ただし、完全な安全性を保証するものではありません。
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#ff0080] mb-4">第6条（Cookieの使用について）</h2>
+            <h2 className="text-2xl font-bold text-[var(--action-red)] mb-4">第6条（Cookieの使用について）</h2>
             <p className="text-gray-300 leading-relaxed">
               本サービスでは、ユーザーの利便性向上やサービス改善のために、Cookieを使用する場合があります。Cookieの使用を希望されない場合、ブラウザの設定でCookieを無効化することができますが、一部のサービス機能が制限される可能性があります。
             </p>
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#00d9ff] mb-4">第7条（プライバシーポリシーの変更）</h2>
+            <h2 className="text-2xl font-bold text-[var(--player-blue)] mb-4">第7条（プライバシーポリシーの変更）</h2>
             <p className="text-gray-300 leading-relaxed">
               1. 本ポリシーの内容は、法令その他本ポリシーに別段の定めのある事項を除いて、ユーザーに通知することなく、変更することができるものとします。
             </p>
@@ -91,13 +91,13 @@ export default function PrivacyPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#ffed4e] mb-4">第8条（お問い合わせ窓口）</h2>
+            <h2 className="text-2xl font-bold text-[var(--player-blue)] mb-4">第8条（お問い合わせ窓口）</h2>
             <p className="text-gray-300 leading-relaxed">
-              本ポリシーに関するお問い合わせは、<Link href="/contact" className="text-[#00ff41] hover:text-[#ff0080] underline">お問い合わせページ</Link>よりご連絡ください。
+              本ポリシーに関するお問い合わせは、<Link href="/contact" className="text-[var(--text-green)] hover:text-[var(--action-red)] underline">お問い合わせページ</Link>よりご連絡ください。
             </p>
           </section>
 
-          <div className="mt-8 pt-8 border-t-2 border-[#00ff41]/30 text-center">
+          <div className="mt-8 pt-8 border-t-2 border-[var(--text-green)]/30 text-center">
             <p className="text-gray-400">以上</p>
           </div>
         </div>
@@ -105,7 +105,7 @@ export default function PrivacyPage() {
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-block px-6 py-3 border-2 border-[#00ff41] text-[#00ff41] hover:bg-[#00ff41] hover:text-black transition-all font-semibold"
+            className="inline-block px-6 py-3 border-2 border-[var(--text-green)] text-[var(--text-green)] hover:bg-[var(--text-green)] hover:text-black transition-all font-semibold"
           >
             ← トップページに戻る
           </Link>

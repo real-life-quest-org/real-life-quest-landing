@@ -8,10 +8,10 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <div className="min-h-screen bg-[#0f0f23] text-[#eaeaea] py-16 px-4">
+    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <h1 className="text-4xl md:text-5xl font-bold text-[#00ff41] mb-4 text-center">
+          <h1 className="section-title section-title-blue mb-4 text-center">
             利用規約
           </h1>
           <p className="text-center text-gray-400">
@@ -19,9 +19,9 @@ export default function TermsPage() {
           </p>
         </div>
 
-        <div className="border-4 border-[#00ff41] bg-black/80 p-8 space-y-8">
+        <div className="border-4 border-[var(--text-green)] bg-black/80 p-8 space-y-8 rlq-card">
           <section>
-            <h2 className="text-2xl font-bold text-[#00ff41] mb-4">第1条（本規約への同意）</h2>
+            <h2 className="text-2xl font-bold text-[var(--text-green)] mb-4">第1条（本規約への同意）</h2>
             <p className="text-gray-300 leading-relaxed">
               1. 本規約は、リアルライフクエスト（以下「本サービス」といいます）の利用に関する条件を、本サービスを利用するユーザー（以下「ユーザー」といいます）と本サービスの運営者（以下「運営者」といいます）との間で定めるものです。
             </p>
@@ -34,7 +34,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#ff0080] mb-4">第2条（サービスの利用）</h2>
+            <h2 className="text-2xl font-bold text-[var(--action-red)] mb-4">第2条（サービスの利用）</h2>
             <p className="text-gray-300 leading-relaxed">
               1. 本サービスは、日常のタスクをクエスト化し、ゲーム感覚で楽しむためのWebアプリケーションです。
             </p>
@@ -47,7 +47,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#00d9ff] mb-4">第3条（禁止事項）</h2>
+            <h2 className="text-2xl font-bold text-[var(--player-blue)] mb-4">第3条（禁止事項）</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
               ユーザーは、本サービスの利用にあたり、以下の行為を行ってはならないものとします。
             </p>
@@ -68,10 +68,10 @@ export default function TermsPage() {
             </ul>
           </section>
 
-          <section className="border-4 border-[#ff0080] p-6 bg-[#ff0080]/10">
-            <h2 className="text-2xl font-bold text-[#ff0080] mb-4">第4条（免責事項）【重要】</h2>
+          <section className="border-4 border-[var(--action-red)] p-6 bg-[var(--action-red)]/10">
+            <h2 className="text-2xl font-bold text-[var(--action-red)] mb-4">第4条（免責事項）【重要】</h2>
             <p className="text-gray-300 leading-relaxed mb-3">
-              <strong className="text-[#ff0080]">本条項は特に重要ですので、必ずお読みください。</strong>
+              <strong className="text-[var(--action-red)]">本条項は特に重要ですので、必ずお読みください。</strong>
             </p>
             <p className="text-gray-300 leading-relaxed">
               1. 運営者は、本サービスがベータ版として提供されていることをご理解いただき、本サービスの内容、完全性、正確性、有用性、安全性、最新性等について、いかなる保証もいたしません。
@@ -91,7 +91,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#ffed4e] mb-4">第5条（サービスの変更・中断・終了）</h2>
+            <h2 className="text-2xl font-bold text-[var(--player-blue)] mb-4">第5条（サービスの変更・中断・終了）</h2>
             <p className="text-gray-300 leading-relaxed">
               1. 運営者は、ユーザーへの事前の通知なく、本サービスの内容を変更し、または本サービスの提供を中断もしくは終了することができるものとします。
             </p>
@@ -101,7 +101,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#00ff41] mb-4">第6条（規約の変更）</h2>
+            <h2 className="text-2xl font-bold text-[var(--text-green)] mb-4">第6条（規約の変更）</h2>
             <p className="text-gray-300 leading-relaxed">
               1. 運営者は、必要と判断した場合には、ユーザーに通知することなくいつでも本規約を変更することができるものとします。
             </p>
@@ -114,7 +114,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#ff0080] mb-4">第7条（個人情報の取扱い）</h2>
+            <h2 className="text-2xl font-bold text-[var(--action-red)] mb-4">第7条（個人情報の取扱い）</h2>
             <p className="text-gray-300 leading-relaxed">
               1. 運営者は、本サービスの利用によって取得する個人情報については、運営者が別途定めるプライバシーポリシーに従い、適切に取り扱うものとします。
             </p>
@@ -124,7 +124,7 @@ export default function TermsPage() {
           </section>
 
           <section>
-            <h2 className="text-2xl font-bold text-[#00d9ff] mb-4">第8条（準拠法・管轄裁判所）</h2>
+            <h2 className="text-2xl font-bold text-[var(--player-blue)] mb-4">第8条（準拠法・管轄裁判所）</h2>
             <p className="text-gray-300 leading-relaxed">
               1. 本規約の解釈にあたっては、日本法を準拠法とします。
             </p>
@@ -133,7 +133,7 @@ export default function TermsPage() {
             </p>
           </section>
 
-          <div className="mt-8 pt-8 border-t-2 border-[#00ff41]/30 text-center">
+          <div className="mt-8 pt-8 border-t-2 border-[var(--text-green)]/30 text-center">
             <p className="text-gray-400">以上</p>
           </div>
         </div>
@@ -141,7 +141,7 @@ export default function TermsPage() {
         <div className="mt-8 text-center">
           <Link
             href="/"
-            className="inline-block px-6 py-3 border-2 border-[#00ff41] text-[#00ff41] hover:bg-[#00ff41] hover:text-black transition-all font-semibold"
+            className="inline-block px-6 py-3 border-2 border-[var(--text-green)] text-[var(--text-green)] hover:bg-[var(--text-green)] hover:text-black transition-all font-semibold"
           >
             ← トップページに戻る
           </Link>
