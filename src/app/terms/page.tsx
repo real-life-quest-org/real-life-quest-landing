@@ -11,10 +11,10 @@ export default function TermsPage() {
     <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)] py-16 px-4">
       <div className="max-w-4xl mx-auto">
         <div className="mb-12">
-          <h1 className="section-title section-title-blue mb-4 text-center">
+          <h1 className="section-title section-title-blue mb-4 text-center text-lg md:text-2xl">
             利用規約
           </h1>
-          <p className="text-center text-gray-400">
+          <p className="text-sm md:text-base text-gray-400">
             最終更新日: 2025年10月15日
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function TermsPage() {
           </section>
 
           <div className="mt-8 pt-8 border-t-2 border-[var(--text-green)]/30 text-center">
-            <p className="text-gray-400">以上</p>
+            <p className="text-sm md:text-base text-gray-400">以上</p>
           </div>
         </div>
 

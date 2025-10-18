@@ -104,7 +104,7 @@ export default function Home() {
           >
             <div className="mb-8 flex justify-center">
               <div className="inline-block border-4 border-[var(--text-green)] p-6 md:p-8 bg-black/50 backdrop-blur-sm">
-                <h1 className="section-title section-title-green text-center leading-tight">
+                <h1 className="section-title section-title-green text-center leading-tight text-base md:text-3xl">
                   「やらなきゃ」を、クエストに。
                 </h1>
                </div>
@@ -117,7 +117,7 @@ export default function Home() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="mb-12"
           >
-            <div className="text-xl md:text-2xl mb-4">
+            <div className="text-xs md:text-lg mb-4">
               家事、勉強、いつもの繰り返しをクエストにすることで、
               <br />
               レベルアップを実感しよう。
@@ -131,7 +131,7 @@ export default function Home() {
                 block: 'center'
               });
             }}
-            className="relative px-8 py-4 bg-black border-4 border-[var(--action-red)] text-[var(--action-red)] text-lg font-semibold hover:bg-[var(--action-red)] hover:text-black transition-all duration-200 cursor-pointer"
+            className="relative px-8 py-4 bg-black border-4 border-[var(--action-red)] text-[var(--action-red)] text-sm md:text-lg font-semibold hover:bg-[var(--action-red)] hover:text-black transition-all duration-200 cursor-pointer"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -145,7 +145,7 @@ export default function Home() {
           </motion.button>
 
           <motion.div
-            className="mt-16 flex justify-center gap-12 text-lg"
+            className="mt-16 flex justify-center gap-12 text-sm md:text-lg"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -153,7 +153,7 @@ export default function Home() {
             {isClient && (
               <>
                 <div className="border-2 border-[var(--text-green)] p-4 bg-black/70">
-                  <p className="text-3xl font-bold text-[var(--text-green)]">{waitlistCount ?? 0}+</p>
+                  <p className="text-2xl md:text-3xl font-bold text-[var(--text-green)]">{waitlistCount ?? 0}+</p>
                   <p className="text-[var(--text-green)]">待機中の冒険者</p>
                 </div>
               </>
@@ -167,7 +167,7 @@ export default function Home() {
           animate={{ y: [0, 10, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          <div className="text-[var(--text-green)] text-3xl font-bold">▼</div>
+          <div className="text-[var(--text-green)] text-2xl md:text-3xl font-bold">▼</div>
         </motion.div>
       </section>
 
@@ -182,7 +182,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <div className="inline-block border-4 border-[var(--action-red)] bg-black p-6">
-              <h2 className="section-title section-title-red">
+              <h2 className="section-title section-title-red text-lg md:text-2xl">
                 心のHP、削られていませんか？
               </h2>
             </div>
@@ -248,13 +248,13 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="inline-block border-4 border-[var(--player-blue)] bg-black p-6 mb-8">
-              <h2 className="section-title section-title-blue">
+              <h2 className="section-title section-title-blue text-lg md:text-2xl">
                 「クエスト化」で、
                 <br />世界はもっと面白くなる。
               </h2>
             </div>
             <div className="border-4 border-[var(--text-green)] bg-black/80 p-8 rlq-card">
-               <p className="text-xl leading-relaxed">
+               <p className="text-sm md:text-xl leading-relaxed">
                  リアルライフクエストは、あなたの視点を変える魔法です。
                  <br /><br />
                  面倒だった<span className="text-[var(--action-red)] font-bold">「今日の献立決め」</span>は、
@@ -276,8 +276,8 @@ export default function Home() {
             className="mt-12 border-4 border-[var(--player-blue)] bg-black/70 p-8 rlq-card"
             style={{ boxShadow: '0 0 30px rgba(85,170,255,0.22)' }}
           >
-            <div className="text-6xl mb-4">✨</div>
-            <p className="text-2xl font-bold text-[var(--player-blue)]">
+            <div className="text-4xl md:text-6xl mb-4">✨</div>
+            <p className="text-lg md:text-2xl font-bold text-[var(--player-blue)]">
               LEVEL UP!
             </p>
           </motion.div>
@@ -295,7 +295,7 @@ export default function Home() {
             className="text-center mb-16"
           >
             <div className="inline-block border-4 border-[var(--player-blue)] bg-black p-6">
-              <h2 className="section-title section-title-blue">
+              <h2 className="section-title section-title-blue text-lg md:text-2xl">
                 冒険の進め方
               </h2>
             </div>
@@ -372,7 +372,7 @@ export default function Home() {
             className="text-center mb-12"
           >
             <div className="inline-block border-4 border-[var(--text-green)] bg-black p-6">
-              <h2 className="section-title section-title-green">
+              <h2 className="section-title section-title-green text-lg md:text-2xl">
                 あなたの頑張り、ちゃんと「経験値」になってる？
               </h2>
             </div>
@@ -386,7 +386,7 @@ export default function Home() {
             className="border-4 border-[var(--text-green)] bg-black/90 backdrop-blur-sm p-8 rlq-card"
             style={{ boxShadow: '0 0 30px rgba(85,255,85,0.25)' }}
           >
-            <div className="text-lg text-gray-300 leading-relaxed space-y-6">
+            <div className="text-sm md:text-lg text-gray-300 leading-relaxed space-y-6">
               <p>
                 <span className="text-[var(--text-green)]">{'>'}</span> 料理、掃除、勉強、スキルアップ。私たちは毎日、数え切れないほどのタスクをこなしています。でも、そのほとんどは誰にも褒められず、経験値にもならずに消えていく。
               </p>
@@ -411,15 +411,15 @@ export default function Home() {
             viewport={{ once: true }}
           >
             <div className="inline-block border-4 border-[var(--text-green)] bg-black p-6 mb-8">
-              <h2 className="section-title section-title-green">
+              <h2 className="section-title section-title-green text-lg md:text-2xl">
                 あなたの冒険を始めよう
               </h2>
             </div>
-            <p className="text-xl mb-10">
+            <p className="text-sm md:text-xl mb-10">
               <span className="text-[var(--action-red)]">▶</span> 先行アクセスに登録して、リアルライフクエストを体験しよう
             </p>
             <div className="text-left mb-6 border-2 border-[var(--player-blue)] p-4 rlq-card">
-              <h3 className="text-lg font-bold mb-2 text-[var(--player-blue)]">【先行アクセスで得られること】</h3>
+              <h3 className="text-sm md:text-lg font-bold mb-2 text-[var(--player-blue)]">【先行アクセスで得られること】</h3>
                <ul className="list-disc list-inside">
                  <li>ベータ版への最速ご招待</li>
                  <li>開発者からのアップデート情報</li>
@@ -434,14 +434,14 @@ export default function Home() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="メールアドレスを入力"
-                  className="w-full mb-4 px-6 py-4 bg-black border-2 border-[var(--text-green)] text-[var(--text-green)] placeholder-[var(--text-green)] focus:outline-none focus:border-[var(--text-green)] text-lg"
+                  className="w-full mb-4 px-6 py-4 bg-black border-2 border-[var(--text-green)] text-[var(--text-green)] placeholder-[var(--text-green)] focus:outline-none focus:border-[var(--text-green)] text-sm md:text-lg"
                   disabled={isSubmitting}
                   required
                 />
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-4 bg-black border-4 border-[var(--action-red)] text-[var(--action-red)] text-lg font-semibold hover:bg-[var(--action-red)] hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full px-8 py-4 bg-black border-4 border-[var(--action-red)] text-[var(--action-red)] text-sm md:text-lg font-semibold hover:bg-[var(--action-red)] hover:text-black transition-all disabled:opacity-50 disabled:cursor-not-allowed"
                   whileHover={!isSubmitting ? { scale: 1.02 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
                   style={{ boxShadow: '0 0 20px rgba(255,85,85,0.25)' }}
@@ -449,14 +449,14 @@ export default function Home() {
                   {isSubmitting ? '登録中...' : '冒険を始める'}
                 </motion.button>
                 {message && (
-                  <p className={`mt-4 text-lg ${message.includes('ありがとう') ? 'text-[var(--text-green)]' : 'text-[var(--action-red)]'}`}>
+                  <p className={`mt-4 text-sm md:text-lg ${message.includes('ありがとう') ? 'text-[var(--text-green)]' : 'text-[var(--action-red)]'}`}>
                     {message}
                   </p>
                 )}
               </div>
             </form>
 
-            <p className="text-base text-gray-400">
+            <p className="text-xs md:text-base text-gray-400">
               ▶ 登録は無料です。解除に関してはお問い合わせのメールアドレスからお知らせください。
               <br />
               ▶ ご登録のメールアドレスは、本プロジェクトのご連絡以外には一切使用しません。
@@ -467,25 +467,25 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="py-12 px-4 border-t-4 border-[var(--text-green)]">
-             <div className="max-w-6xl mx-auto text-center">
-               <p className="mb-4 font-bold text-[var(--text-green)]">
-                 © 2025 リアルライフクエスト
-               </p>
-               <div className="flex justify-center gap-8 text-lg">
-                 <Link href="/privacy" className="text-[var(--player-blue)] hover:text-[var(--action-red)] transition-colors">
-                   プライバシーポリシー
-                 </Link>
-                 <span className="text-[var(--text-green)]">|</span>
-                 <Link href="/terms" className="text-[var(--player-blue)] hover:text-[var(--action-red)] transition-colors">
-                   利用規約
-                 </Link>
-                 <span className="text-[var(--text-green)]">|</span>
-                 <Link href="/contact" className="text-[var(--player-blue)] hover:text-[var(--action-red)] transition-colors">
-                   お問い合わせ
-                 </Link>
-               </div>
-             </div>
-           </footer>
+        <div className="max-w-6xl mx-auto text-center">
+          <p className="mb-4 font-bold text-[var(--text-green)] text-sm md:text-base">
+            © 2025 リアルライフクエスト
+          </p>
+          <div className="flex justify-center gap-8 text-xs md:text-lg">
+            <Link href="/privacy" className="text-[var(--player-blue)] hover:text-[var(--action-red)] transition-colors">
+              プライバシーポリシー
+            </Link>
+            <span className="text-[var(--text-green)]">|</span>
+            <Link href="/terms" className="text-[var(--player-blue)] hover:text-[var(--action-red)] transition-colors">
+              利用規約
+            </Link>
+            <span className="text-[var(--text-green)]">|</span>
+            <Link href="/contact" className="text-[var(--player-blue)] hover:text-[var(--action-red)] transition-colors">
+              お問い合わせ
+            </Link>
+          </div>
+        </div>
+      </footer>
     </div>
   );
  }
