@@ -152,13 +152,12 @@ export default function Home() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            {isClient && (
-              <>
-                <div className="border-2 border-[var(--text-green)] p-4 bg-black/70">
-                  <p className="text-2xl md:text-3xl font-bold text-[var(--text-green)]">{waitlistCount ?? 0}+</p>
-                  <p className="text-[var(--text-green)]">待機中の冒険者</p>
-                </div>
-              </>
+            {/* Show the waitlist box only when count is greater than 10 */}
+            {isClient && (waitlistCount ?? 0) > 10 && (
+              <div className="border-2 border-[var(--text-green)] p-4 bg-black/70">
+                <p className="text-2xl md:text-3xl font-bold text-[var(--text-green)]">{waitlistCount}+</p>
+                <p className="text-[var(--text-green)]">待機中の冒険者</p>
+              </div>
             )}
           </motion.div>
         </div>
