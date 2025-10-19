@@ -107,6 +107,8 @@ export default function Home() {
                 <h1 className="section-title section-title-green text-center leading-tight text-base md:text-3xl">
                   「やらなきゃ」を、クエストに。
                 </h1>
+                {/* Treasure chest image (place treasure-chest.png into /public/) */}
+                <img src="/treasure-chest.png" alt="宝箱" className="mx-auto w-20 md:w-36 mt-4" />
                </div>
              </div>
            </motion.div>
